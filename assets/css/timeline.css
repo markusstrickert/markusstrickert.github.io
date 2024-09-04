@@ -2,19 +2,13 @@
 #cd-timeline {
     position: relative;
     padding: 2em 0;
-    max-width: 90%; /* Adjusted to make it wider */
-    margin: 0 auto; /* Centers the timeline horizontally */
+    width: 90%; /* Use 90% of the width */
+    margin: 0 auto; /* Center the timeline horizontally */
 }
 
 .cd-timeline-block {
     position: relative;
     margin-bottom: 2em;
-    width: 100%; /* Makes each block take full width */
-}
-
-.cd-timeline-block:after {
-    content: "";
-    display: table;
     clear: both;
 }
 
@@ -30,19 +24,31 @@
     top: 0;
     left: 50%;
     margin-left: -30px;
-    background: #f8694a; /* Icon background color */
+    background: #f8694a;
+    z-index: 1; /* Make sure the icon is above the timeline line */
 }
 
 .cd-timeline-content {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px; /* Internal padding */
-    background: #fff; /* Light background for readability */
-    border-radius: 4px; /* Slightly rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    max-width: 100%; /* Makes sure it doesn't overflow */
-    width: auto; /* Auto width to fit content */
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 100px); /* Adjust width to allow room for icons */
+    margin: 0 auto; /* Center content horizontally */
+    z-index: 0;
+}
+
+.cd-timeline-content:before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #f8694a;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1; /* Put the line behind the content */
 }
 
 .cd-timeline-content h2 {
@@ -76,24 +82,25 @@
     color: #999;
     font-size: 0.85em;
     margin-top: 10px;
+    text-align: center;
 }
 
 article#community {
-    background: none; /* Remove background */
-    box-shadow: none; /* Remove shadow */
-    border: none; /* Remove border */
-    padding: 0; /* Remove padding to eliminate card-like styling */
-    margin: 0; /* No margin to ensure full-width usage */
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    width: 100%; /* Ensures it uses the full width */
 }
 
 .cd-container {
-    width: 100%; /* Ensure the container uses full width */
+    width: 100%;
 }
 
-/* Adjust spacing for different screen sizes */
+/* Responsive adjustments */
 @media only screen and (max-width: 768px) {
     .cd-timeline-content {
-        padding: 15px; /* Adjust padding for smaller screens */
+        width: calc(100% - 40px); /* Adjust content width for smaller screens */
+        padding: 15px;
     }
     .cd-timeline-img {
         width: 50px;
