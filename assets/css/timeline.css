@@ -3,6 +3,8 @@ html, body {
     height: 100%;
     font-family: 'Open Sans', sans-serif;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .cd-container {
@@ -172,8 +174,8 @@ Main components
     .cd-timeline-content {
         color: white;
         padding: 1.6em;
-        width: 45%; /* Increased width for wider screens */
-        margin: 0 2.5%; /* Reduced margins */
+        width: 85%; /* Almost full-screen width */
+        margin: 0 auto; /* Centered with minimal margins */
     }
     .cd-timeline-content::before {
         top: 24px;
@@ -184,7 +186,7 @@ Main components
     .cd-timeline-content .cd-date {
         position: absolute;
         width: 100%;
-        left: 120%;
+        left: 105%;
         top: 6px;
         font-size: 16px;
         font-size: 1rem;
@@ -204,7 +206,7 @@ Main components
     }
     .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
         left: auto;
-        right: 120%;
+        right: 105%;
         text-align: right;
     }
 }
